@@ -48,7 +48,7 @@ module.exports = (app) => {
             }, (err, result) => {
                 if (err) return cb(err)
 
-                _.extendOwn(item.data, _.extendOwn({ _id: result.items[0].index._id }, result._source))
+                _.extendOwn(item.data, _.extendOwn({ id: result.items[0].index.id }, result._source))
 
                 if (cb) cb(null, item)
             })
@@ -56,18 +56,18 @@ module.exports = (app) => {
 
         /**
          * Read an object from the DB
-         * @param {Object} item - object compiled by the model (needs _id)
+         * @param {Object} item - object compiled by the model (needs id)
          * @param {function} cb - callback
          */
         read(item, cb){
-          if(!item.data._id) return cb(`Cannot process read, data._id missing on item`, null)
+          if(!item.data.id) return cb(`Cannot process read, data.id missing on item`, null)
 
             client.get(Object.assign({
-                id: item.data._id,
+                id: item.data.id,
             }, item.params), (err, result) => {
                 if (err) return cb(err)
 
-                _.extendOwn(item.data, _.extendOwn({ _id: result._id }, result._source))
+                _.extendOwn(item.data, _.extendOwn({ id: result.id }, result._source))
 
                 if (cb) cb(null, item)
             })
@@ -84,14 +84,14 @@ module.exports = (app) => {
             item.data.updated_at = moment().format()
 
             client.update(Object.assign({
-                id: item.data._id,
+                id: item.data.id,
                 body: {
                   doc: item.body(),
                 }
             }, item.params), (err, result) => {
                 if (err) return cb(err)
 
-                _.extendOwn(item.data, _.extendOwn({ _id: result._id }, result._source))
+                _.extendOwn(item.data, _.extendOwn({ id: result.id }, result._source))
                 if (cb) cb(null, item)
             })
         },
@@ -102,12 +102,12 @@ module.exports = (app) => {
          * @param {function} cb - callback
          */
         delete(item, cb){
-          if(!item.data._id) return cb(`Cannot process delete, data._id missing on item`, null)
+          if(!item.data.id) return cb(`Cannot process delete, data.id missing on item`, null)
 
           client.delete({
               index: item.params.index,
               type: item.params.type,
-              id: item.data._id
+              id: item.data.id
           }, (err, result) => {
               if (err) return cb(err)
 
@@ -123,7 +123,7 @@ module.exports = (app) => {
         save(item, cb){
             if(!item.valid()) return cb(item.validate().error, null)
 
-            if(item.data._id)
+            if(item.data.id)
                 this.update(item, cb)
             else
                 this.create(item, cb)
