@@ -1,6 +1,6 @@
 {
   "name": "@blacksmithstudio/blockbase-elasticsearch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "blockbase driver for Elasticsearch",
   "main": "driver.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org:blacksmithstudio/driver-elasticsearch.git"
+    "url": "git+ssh://git@github.com:blacksmithstudio/blockbase-elasticsearch.git"
   },
   "author": "Alexandre Pereira <alex@blacksmith.studio>",
   "license": "MIT",
