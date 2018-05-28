@@ -4,7 +4,7 @@
   "description": "blockbase driver for Elasticsearch",
   "main": "driver.js",
   "scripts": {
-    "test": "mocha --harmony-async-await"
+    "test": "node test/init.js && mocha test/test"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
     "elasticsearch": "^13.2.0",
     "moment": "^2.18.1",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "@blacksmithstudio/blockbase": "^1.0.4",
+    "mocha": "^5.2.0"
   }
 }
