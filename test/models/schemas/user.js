@@ -7,7 +7,7 @@ const moment = require('moment')
  * @returns {Object} Joi schema
  */
 module.exports = Joi.object().keys({
-    id         : Joi.number().integer(),
+    id         : Joi.string().max(512),
     firstname  : Joi.string().max(128).optional(),
     lastname   : Joi.string().max(128).optional()
 })

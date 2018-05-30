@@ -48,7 +48,7 @@ module.exports = (app) => {
                 }, (error, result) => {
                     if (error) return reject(error)
                     
-                    _.extendOwn(item.data, _.extendOwn({ id: result.items[0].index.id }, result._source))
+                    _.extendOwn(item.data, _.extendOwn({ id: result.items[0].index._id }, result._source))
                     resolve(item)
                 })    
             })
@@ -67,7 +67,7 @@ module.exports = (app) => {
                 }, item.params), (error, result) => {
                     if (error) return reject(error)
                     
-                    _.extendOwn(item.data, _.extendOwn({ id: result.id }, result._source))
+                    _.extendOwn(item.data, _.extendOwn({ id: result._id }, result._source))
                     resolve(item)
                 })
             })
@@ -91,7 +91,7 @@ module.exports = (app) => {
                 }, item.params), (error, result) => {
                     if (error) return reject(error)
                     
-                    _.extendOwn(item.data, _.extendOwn({ id: result.id }, result._source))
+                    _.extendOwn(item.data, _.extendOwn({ id: result._id }, result._source))
                     resolve(item)
                 })
             })
@@ -126,11 +126,11 @@ module.exports = (app) => {
             
             try{
                 if(item.data.id)
-                    return await this.update(item)
+                    return await this.update(item) 
                 else
                     return await this.create(item)
             } catch(error){ 
-                throw e 
+                throw error
             }
         }
     }

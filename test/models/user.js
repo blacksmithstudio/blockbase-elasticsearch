@@ -8,14 +8,15 @@
  */
 module.exports = (app) => {
     const Model = app.models._model
+    const Config = app.config
 
-    return class Foo extends Model {
+    return class User extends Model {
         /**
          * main constructor
          * @param {Object} data - data to param the model
          */
         constructor(data) {
-            super({ type: 'user' })
+            super({ type: 'user', index : Config.elasticsearch.index })
 
             if (data)
                 this.data = data
