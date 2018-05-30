@@ -2,7 +2,7 @@
 Compatible with Blockbase Framework
 
 ### Version
-0.0.3 alpha
+0.0.4 alpha
 
 ### How to install ?
 ```shell
@@ -17,12 +17,57 @@ elasticsearch :
     index : myindex
 ```
 
-@TODO - finish the doc usage on the model use
+In your models, you just have to setup the type (refering to the type in ES) and the index from your config, example below :
+``` js
+module.exports = (app) => {
+    const Model = app.models._model
+    const Config = app.config
+
+    return class User extends Model {
+        /**
+         * main constructor
+         * @param {Object} data - data to param the model
+         */
+        constructor(data) {
+            // for example I have myindex as index & user as type in ES
+            super({ type: 'user', index : Config.elasticsearch.index })
+
+            if (data)
+                this.data = data
+        }
+    }
+}
+```
+
+The use what you want in your usage as a classic Blockbase model.
+For example here is an example controller from express, receiving data.
+``` js
+module.exports = (app) => {
+    const User = app.models.user
+
+    return {
+        async create(req, res){
+            const { firstname, lastname, email } = req.body
+
+            let user = new User({ firstname, lastname, email })
+            try{
+                user = await user.save()
+                console.log(user.data.id) // here you get your ES id
+            }
+        }
+    }
+}
+```
+
+### Unit tests
+```shell
+$ npm run test
+```
 
 License
 ----
 
-(Copyright) 2017 - Alexandre Pereira for Blacksmith S.A.S.
+(Copyright) 2018 - Alexandre Pereira for Blacksmith S.A.S.
 
 
 **Free Software, Hell Yeah!**
