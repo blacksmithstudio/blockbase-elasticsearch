@@ -1,6 +1,6 @@
 {
-  "name": "@blacksmithstudio/blockbase-elasticsearch",
-  "version": "0.0.4",
+  "name": "blockbase-elasticsearch",
+  "version": "0.0.5",
   "description": "blockbase driver for Elasticsearch",
   "main": "driver.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "@blacksmithstudio/blockbase": "^1.0.4",
+    "blockbase": "^1.0.6",
     "mocha": "^5.2.0"
   }
 }

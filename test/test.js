@@ -1,7 +1,7 @@
 process.env['NODE_CONFIG_DIR'] = __dirname + '/config'
 
 const assert = require('assert')
-const blockbase = require('@blacksmithstudio/blockbase')
+const blockbase = require('blockbase')
 
 describe('Initialization of tests', () => {
     it('ElasticSearch driver physical presence', () => {

@@ -2,11 +2,11 @@
 Compatible with Blockbase Framework
 
 ### Version
-0.0.4 alpha
+0.0.5 alpha
 
 ### How to install ?
 ```shell
-$ npm i --save @blacksmithstudio/blockbase-elasticsearch
+$ npm i --save blockbase-elasticsearch
 ```
 
 Then add to your config/{env}.yml the following instructions depending of your system
@@ -66,8 +66,8 @@ $ npm run test
 
 License
 ----
-
-(Copyright) 2018 - Alexandre Pereira for Blacksmith S.A.S.
+(Licence [MIT](https://github.com/blacksmithstudio/blockbase/blob/master/LICENCE))
+Coded by [Blacksmith](https://www.blacksmith.studio)
 
 
 **Free Software, Hell Yeah!**
