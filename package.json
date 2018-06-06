@@ -1,10 +1,10 @@
 {
   "name": "blockbase-elasticsearch",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "blockbase driver for Elasticsearch",
   "main": "driver.js",
   "scripts": {
-    "test": "mocha --harmony-async-await"
+    "test": "node test/init.js && mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
     "elasticsearch": "^13.2.0",
     "moment": "^2.18.1",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "blockbase": "^1.0.6",
+    "mocha": "^5.2.0"
   }
 }
