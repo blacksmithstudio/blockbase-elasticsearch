@@ -1,5 +1,5 @@
 {
-  "name": "@blacksmithstudio/blockbase-elasticsearch",
+  "name": "blockbase-elasticsearch",
   "version": "0.0.3",
   "description": "blockbase driver for Elasticsearch",
   "main": "driver.js",
