@@ -66,11 +66,7 @@ $ npm run test
 
 License
 ----
-<<<<<<< HEAD
-(Licence [MIT](https://github.com/blacksmithstudio/blockbase-express/blob/master/LICENCE))
-=======
 (Licence [MIT](https://github.com/blacksmithstudio/blockbase-elasticsearch/blob/master/LICENCE))
->>>>>>> e5f4fabea12a5b1187f51655f392468d8a11bd1b
 Coded by [Blacksmith](https://www.blacksmith.studio)
 
 
